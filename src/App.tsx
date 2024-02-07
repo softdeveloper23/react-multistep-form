@@ -1,9 +1,12 @@
+import { AccountForm } from "./AccountForm"
+import { AddressForm } from "./AddressForm"
+import { UserForm } from "./UserForm"
 import { useMultistepForm } from "./useMultistepForm"
 
 function App() {
   const {
     steps, currentStepIndex, step, isFirstStep, isLastStep, back, next,
-  } = useMultistepForm([<div>One</div>, <div>Two</div>])
+  } = useMultistepForm([<UserForm />, <AddressForm />, <AccountForm />])
 
   return <div style={{
     position: 'relative',
