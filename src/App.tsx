@@ -8,7 +8,7 @@ import { useState } from "react"
 type FormData = {
   firstName: string
   lastName: string
-  age: number
+  age: string
   street: string
   city: string
   state: string
@@ -20,7 +20,7 @@ type FormData = {
 const INITIAL_DATA: FormData = {
   firstName: '',
   lastName: '',
-  age: 0,
+  age: '',
   street: '',
   city: '',
   state: '',
@@ -40,7 +40,8 @@ function App() {
 
   function onSubmit(e: FormEvent) {
     e.preventDefault()
-    next()
+    if (!isLastStep) return next()
+    alert('Form submitted')
   }
 
   return <div style={{
@@ -51,6 +52,7 @@ function App() {
     margin: '1rem',
     borderRadius: '.5rem',
     fontFamily: 'Arial, sans-serif',
+    maxWidth: 'max-content',
   }}>
     <form onSubmit={onSubmit}>
       <div
